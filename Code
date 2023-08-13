@@ -1,0 +1,51 @@
+package com.module2.pkg;
+
+public class UniqueElement {
+
+	public static void main(String[] args) {
+		int arr[] = {3, 3, 1, 1, 8, 8, 10, 10, 19, 6, 6, 2, 2, 4, 4};
+		System.out.println(uniqueElement(arr));	
+
+	}
+
+	public static int uniqueElement(int arr[]) {
+		int n = arr.length;
+		//if only one element then return the same.
+		if(n == 1) {
+			return arr[0];
+		}
+		//if first two element is not equal then return first element
+		if(arr[0] != arr[1]) {
+			return arr[0];
+		}
+		//if last two element is not equal then return first occurance of last element
+		if(arr[n-1] != arr[n-2]) {
+			return arr[n-1];
+		}
+
+		int l = 1;
+		int r = n-2;
+
+		while(l <= r) {
+			//finding the mid
+			int mid = (l + r)/2;
+
+			//checking if mid is unique
+			if(arr[mid]!= arr[mid-1] && arr[mid]!= arr[mid+1]) {
+				return arr[mid];
+			}
+			//mid is odd then goto left
+			if(arr[mid] == arr[mid-1]) {
+				mid = mid - 1;
+			}
+			//if mid is even then goto left by 2 swift
+			if(mid%2==0) {
+				l = mid + 2;
+			}else {
+				//if mid is even then goto left by 2 swift
+				r = mid - 1;
+			}
+		}
+		return -1;
+	}
+}
