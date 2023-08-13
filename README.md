@@ -1,2 +1,2 @@
 # DSA-Searching
-Searching the Unique Element
+Every Element occurs twice except for one, Find Unique Element.
