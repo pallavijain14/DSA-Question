@@ -17,8 +17,6 @@ Psuedo Code :
 
 CODE:
 
-package com.module2.pkg;
-
 public class UniqueElement {
 
 	public static void main(String[] args) {
