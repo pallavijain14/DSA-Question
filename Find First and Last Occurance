@@ -1,0 +1,52 @@
+In a given Array, Find First and Last Occurance of target element.
+
+
+public class FindOccurance {
+
+	public static void main(String[] args) {
+		
+		//ar[15]     0   1   2  3  4  5  6  7  8  9  10 11 12 13 14  15  16
+		int ar[] = {-5, -5, -3, 0, 0, 1, 1, 5, 5, 5, 5, 5, 5, 8, 10, 10, 15};
+		
+		int k = 10;
+		
+		System.out.println("FirstOcc " +FirstOcc(ar, k));
+	}
+
+	//Q : find first , last and freq Occurance from sorted array.
+	
+	static int FirstOcc(int ar[], int k) {
+		int n = ar.length;
+		int l = 0, h =n-1, ans = -1;
+		
+		
+		while(l <= h) {
+			int mid = (l + h)/2;
+			
+			//0 + 16 = 8 ar[8]=5
+			if(ar[mid] == k) {
+				ans = mid;
+				
+				//first occurance //goto left
+				h = mid - 1;
+				System.out.println("first "+h);
+
+				//last occurance //goto right
+				l = mid + 1;
+				System.out.println("last "+l);
+				
+				//freq of first and last 
+				int freq = 0;
+				freq = l - h + 1;
+				System.out.println("freq "+freq);
+			}
+			if(ar[mid] < k) {
+				//goto right
+				l = mid + 1;
+			}else {
+				h = mid - 1;
+			}
+		}
+		return ans;
+	}
+}
