@@ -20,10 +20,10 @@ public class MatrixSearch {
 		int r = n * m - 1;
 		
 		while(l <= r) {
-			int mid = (l + r)/2;
+			int mid = l+ (r - l)/2;
 			
 			if(mid == target) {
-				return target;
+			    return target;
 			}else if(mid < target) {
 				l = mid + 1;
 			}else {
@@ -33,3 +33,7 @@ public class MatrixSearch {
 		return -1;
 	}
 }
+
+
+Time Complexity - O(n)
+Space Complexity - O(1)
