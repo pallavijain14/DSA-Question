@@ -1,0 +1,33 @@
+package com.main.pkg;
+/*
+ * Two Pointers : Trapping Rain Water problem(12-12-23)
+ */
+public class TrapWater {
+
+	public static void main(String[] args) {
+		int arr[] = {3, 5, 4, 7, 3, 6, 4, 1, 2};
+		System.out.println(water(arr));
+	}
+
+	public static int water(int H[]) {
+		int ans = 0; int n = H.length;
+		int p1 = 0, p2 = n - 1;
+
+    //index of an array size
+		while(p1 < p2) { 
+			//Math.min(H[p1], H[p2] finding min btw p1 p2(min Height H),L =  p2-p1 , H*L = C and comparing ans then which is max is our ans.
+      ans  = Math.max(ans, (p2-p1) * Math.min(H[p1], H[p2]));
+			
+		  //pointing on this index if get bigger than p2 so p2-- else p1++
+			if(H[p1] < H[p2]) {   
+				p1++;
+			}else {
+				p2--;
+			}
+		}
+		return ans;
+	}
+	
+	//TC --> O(N}
+	//SC --> O(1)
+}
