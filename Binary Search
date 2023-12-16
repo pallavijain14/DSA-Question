@@ -1,0 +1,34 @@
+package com.module2.pkg;
+
+public class Searching {
+
+	public static void main(String[] args) {
+		int arr[] = {3, 6, 9, 12, 14, 19, 20, 23, 25, 27};
+		int k = 25;
+		boolean ar = search(arr,k);
+		System.out.println(ar);
+	}
+
+	//Binary Search -> find mid divide into two and discard one and find search.
+	static boolean search(int ar[], int k) {
+		int n = ar.length;
+		int l = 0;
+		int h = n-1;
+		
+		while(l <= h) {              //l <= h or l < h doubt?
+			int mid = (l + h)/2;    //define mid inside while loop else you will not get any output.
+			
+			if(ar[mid] == k) {
+				return true;
+			}
+			if(ar[mid] > k) {    //mid > k  8 > 6 ->goto left
+				//goto left
+				h = mid - 1;
+			}else {
+				//goto right
+				l = mid + 1;
+			}
+		}
+		return false;
+	}
+}
