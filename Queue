@@ -1,0 +1,65 @@
+package com.main.pkg;
+
+public class Queue {
+
+	//Node implemenatation
+	class Node{
+		int data;
+		Node next;
+		Node(int x){
+			data = x;
+			next = null;
+		}
+	}
+	//enqueue
+	int s = 0;
+	Node h = null;
+	Node t = null;
+
+	public void queue(int x) {
+		Node nn = new Node(x);
+		s = s + 1;      //increasing the size
+		if(h == null) { //if node is null
+			h = nn;
+			t = nn;
+		}else {
+			t.next =nn;  //some node is present
+			t = nn;
+		}
+
+	}
+
+	//dequeue
+	void dequeue() {
+		if(h == null) {
+			return;
+		}
+		else {
+			Node temp = h;
+			h = h.next;
+			temp.next = null;
+			s = s-1;         //decreasing the size
+		}
+	}
+
+	int size() {
+		return s;
+	}
+
+	//front
+	void front(){
+		if(h == null) {
+			return;
+		}
+	}
+
+	//rare
+	int rare() {
+		if(t == null) {
+			return 0;
+		}else {
+			return t.data;
+		}
+
+	}
+}
