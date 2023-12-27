@@ -1,0 +1,37 @@
+package com.main.pkg;
+
+public class LocalMaxima {
+
+	//GOOGLE ASKED QUESTION
+	public static void main(String[] args) {
+		int ar[] = {1, 2, 7, 3, 6, 4, 1, 5, 2, 10, -4};
+		System.out.println(localMaxima(ar));
+	}
+
+	//Given unsorted array with all distinct elements, return any ans local maxima.
+	static int localMaxima(int ar[]) {
+		int n = ar.length;
+		
+		if(ar[0] > ar[1]) {
+			return ar[0];
+		}else if(ar[n-1] > ar[n-2]) {
+			return ar[n-1];
+		}
+		
+		int l = 0, h = n-1;
+		
+		while(l <= h) {
+			int m = (l + h)/2;
+			
+			if(ar[m] > ar[m-1] && ar[m] > ar[m+1]) {
+				return ar[m];
+				
+			}else if(ar[m] > ar[m-1]) {
+				l = m + 1;
+			}else {
+				h = m - 1;
+			}
+		}
+		return -1;
+	}
+}
