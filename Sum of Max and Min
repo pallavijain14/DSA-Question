@@ -1,0 +1,24 @@
+public static void main(String[] args) {
+		int[][] arr = {{1, 2, 3},{1, 0, 9}};
+		System.out.println(solve(arr));
+		
+	
+//1. Sum of [Max - Min] in every row
+	//solution 1 : Math.max and Math.min
+	public static int maxmin(int[][] mat) {
+
+		int sol = 0;
+		for(int i = 0; i< mat.length;i++) {
+			int max, min;
+			max = min = mat[i][0];
+			for(int j = 0; j <mat[0].length; j++) {
+				max = Math.max(max, mat[i][j]);
+				min  = Math.max(min, mat[i][j]);
+
+
+			}
+			int diff = max - min;
+			sol = sol + diff;
+		}
+		return sol;
+	}
