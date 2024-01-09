@@ -1,0 +1,9 @@
+public class Solution {
+    public int[] solve(int[] A, int B, int C) {
+         ArrayList<Integer> ans = new ArrayList<Integer>();
+        for(int i = B ; i <= C ; i++){
+            ans.add(A.get(i));
+        }
+        return ans;
+    }
+}
