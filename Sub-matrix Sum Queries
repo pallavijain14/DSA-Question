@@ -1,0 +1,28 @@
+public class Solution {
+    final int mod = 1000000007;
+    public long[][] prefixMatrixSum(int[][] A){
+        int n = A.length, m = A[0].length;
+        long preSum[][] = new long[n + 1][m + 1];
+        // preSum[i][j] denotes the sum of elements of matirx (0, 0) to (i, j)
+        for(int i = 1; i <= n ; i++){
+            for(int j = 1; j <= m; j++){
+                preSum[i][j] = (A[i - 1][j - 1] + preSum[i - 1][j] + preSum[i][j - 1] - preSum[i - 1][j - 1] + mod) % mod;
+            }
+        }
+        return preSum;
+    } 
+    public int[] solve(int[][] A, int[] B, int[] C, int[] D, int[] E) {
+        int sum = 0;
+        long preSum[][] = prefixMatrixSum(A);
+        int res[] = new int[B.length];
+        for(int i = 0; i < B.length; i++){
+            int x1 = B[i], y1 = C[i], x2 = D[i], y2 = E[i];
+            long ans = preSum[x2][y2] - preSum[x2][y1 - 1] - preSum[x1 - 1][y2] + preSum[x1 - 1][y1 - 1];
+            while(ans < 0)
+                ans += mod;
+            ans = ans % mod;
+            res[i] = (int)ans;
+        }
+        return res;
+    }
+}
