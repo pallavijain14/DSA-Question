@@ -1,0 +1,11 @@
+public class Solution {
+    public int numSetBits(int A) {
+        int total_ones = 0;
+        while (A != 0) {
+            // rightmost set bit becomes unset
+            A = A & (A - 1);
+            total_ones++;
+        }
+        return total_ones;
+    }
+}
