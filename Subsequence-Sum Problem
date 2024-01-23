@@ -1,0 +1,17 @@
+public class Solution {
+    public int subsequenceSum(int[] A, int B, int i) {
+        if (i == -1) {
+            if (B == 0) return 1;
+            else return 0;
+        }
+        int ans = 0;
+        ans |= subsequenceSum(A, B, i - 1);
+        ans |= subsequenceSum(A, B - A[i], i - 1);
+        return ans;
+    }
+    public int solve(int[] A, int B) {
+        if (B == 0) return 0;
+        int n = A.length;
+        return subsequenceSum(A, B, n - 1);
+    }
+}
