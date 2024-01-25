@@ -1,0 +1,14 @@
+public class Solution {
+    public int solve(int i, int j, String A){
+        if(i >= j){
+            return 1;
+        }
+        if(A.charAt(i) != A.charAt(j)){
+            return 0;
+        }
+        return solve(i+1, j-1, A);
+    }
+    public int solve(String A) {
+        return solve(0, A.length()-1, A);
+    }
+}
