@@ -1,0 +1,14 @@
+public class Solution {
+    public long solve(int[] A) {
+        int n = A.length;
+    long ans = A[0];
+    for (int i = 0; i < n; i++) {
+        long cur_ans = 0;
+      for (int j = i; j < n; j++) {
+        cur_ans += A[j];  
+        ans = Math.max(ans, cur_ans);
+      }
+    }
+    return ans;
+    }
+}
