@@ -1,0 +1,12 @@
+public class Solution {
+    public int[] solve(int[] A) {
+        int n = A.length;
+    int[] sfmax = new int[n];
+    int maxi = A[n - 1];
+    for (int i = n - 1; i >= 0; i--) {
+      maxi = Math.max(maxi, A[i]);
+      sfmax[i] = maxi;
+    }
+    return sfmax;
+    }
+}
